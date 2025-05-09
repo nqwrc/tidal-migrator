@@ -1,0 +1,14 @@
+<!-- templates/category_view.html -->
+{% for category, items in {'tracks': tracks, 'albums': albums, 'artists': artists, 'videos': videos, 'playlists': playlists}.items() %}
+  <section id="{{ category }}View" class="category-view" style="display:none;">
+    <h2>{{ category.capitalize() }}</h2>
+    <div class="scrollable-content">
+      <ul>
+        {% for item in items %}
+          <li>{{ item.name }}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    <button class="btn btn-secondary" onclick="backToCategories()">Back</button>
+  </section>
+{% endfor %}

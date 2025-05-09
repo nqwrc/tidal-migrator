@@ -1,0 +1,11 @@
+<!-- templates/import_export.html -->
+<section class="header-container">
+    <form id="uploadForm" action="/import_favorites" method="POST" enctype="multipart/form-data">
+        <input type="file" id="csvFile" name="csvFiles" accept=".csv" multiple />
+        <button type="submit">Import and Sync CSV files</button>
+      </form>
+
+    <form id="downloadForm" action="/export_favorites" method="GET">
+        <button class="download-csv">Download all CSV</button>
+    </form>
+</section>

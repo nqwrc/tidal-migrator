@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tidal Playlist Manager</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <p>Click the button below to connect with Tidal:</p>
+    {% if usernames and usernames|length > 0 %}
+      <form method="post" action="/login" style="margin-bottom:1rem;">
+        <label for="username">Select Account:</label>
+        <select name="username" id="username">
+          {% for user in usernames %}
+            <option value="{{ user }}" {% if user == current_user %}selected{% endif %}>{{ user }}</option>
+          {% endfor %}
+        </select>
+        <button class="btn btn-secondary" type="submit">Switch</button>
+      </form>
+      <div style="margin-bottom:1rem;">or</div>
+    {% endif %}
+    <form method="post" action="/login">
+      <button class="btn btn-login" type="submit">Sign In with New Tidal Account</button>
+    </form>
+  </div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
