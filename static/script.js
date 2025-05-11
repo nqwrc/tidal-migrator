@@ -79,15 +79,15 @@ function handleCSVDownload(event) {
 
 // Modal logic for Transfer Favorites
 const openModalBtn = document.getElementById('openTransferModal');
-const closeModalBtn = document.getElementById('closeTransferModal');
 const transferModal = document.getElementById('transferModal');
 
-if (openModalBtn && closeModalBtn && transferModal) {
+if (openModalBtn && transferModal) {
   openModalBtn.onclick = function() {
-    transferModal.style.display = 'block';
-  };
-  closeModalBtn.onclick = function() {
-    transferModal.style.display = 'none';
+    if (transferModal.style.display === 'block') {
+      transferModal.style.display = 'none';
+    } else {
+      transferModal.style.display = 'block';
+    }
   };
   window.onclick = function(event) {
     if (event.target === transferModal) {

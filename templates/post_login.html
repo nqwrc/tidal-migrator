@@ -30,7 +30,6 @@
   <!-- Transfer Favorites Modal -->
   <div id="transferModal" class="modal" style="display:none;">
     <div class="modal-content">
-      <span class="close" id="closeTransferModal">&times;</span>
       <h2 style="margin-bottom:1rem;">Transfer Favorites From Another Account</h2>
       <form id="transferFavoritesForm" method="post" action="/transfer_all_favorites">
         <label for="source_user_transfer">Source account:</label>
@@ -68,7 +67,8 @@
 
   {% for category, items in {'tracks': tracks, 'albums': albums, 'artists': artists, 'videos': videos, 'playlists': playlists}.items() %}
     <section id="{{ category }}View" class="category-view" style="display:none;">
-      <h2>{{ category.capitalize() }}</h2>
+      <button class="btn btn-secondary" style="margin-bottom:1.2em; margin-top:0; float:left;" onclick="backToCategories()">Back</button>
+      <h2 style="clear:both;">{{ category.capitalize() }}</h2>
       <div class="scrollable-content">
         <ul>
           {% for item in items %}
@@ -76,7 +76,6 @@
           {% endfor %}
         </ul>
       </div>
-      <button class="btn btn-secondary" onclick="backToCategories()">Back</button>
     </section>
   {% endfor %}
 
